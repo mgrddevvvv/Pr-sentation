@@ -9,7 +9,7 @@ const SITE = {
 
 const PROFILES = [
   {
-    id: "mgrd", // utilisé dans l'adresse (?p=moi) : pas d'espace ni d'accent
+    id: "moi", // utilisé dans l'adresse (?p=moi) : pas d'espace ni d'accent
     name: "Mgrd___",
     handle: "@mgrd____",
     avatar: "assets/mgrd/avatar.jpg",
@@ -31,7 +31,7 @@ const PROFILES = [
     colors: ["#a855f7", "#ff4d8d"],
   },
   {
-    id: "marlou",
+    id: "coequipier",
     name: "Marlou",
     handle: "@marlou46",
     avatar: "assets/marlou/avatar.png",
