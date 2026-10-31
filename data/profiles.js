@@ -26,7 +26,7 @@ const PROFILES = [
       { icon: "fa-brands fa-discord", label: "Discord", sub: "Mgrd___", url: "https://discord.com/users/1492811688657817701" },
       { icon: "fa-brands fa-youtube", label: "YouTube", sub: "Nexium DarkRP", url: "https://youtube.com/@nexiumdarkrp" },
     ],
-    music: { src: "assets/mgrd/music.mp3", title: "Akimbo", artist: "Ziak", volume: 0.75 },
+    music: { src: "assets/mgrd/music.mp3", title: "SIERRA LEONE", artist: "Timar", volume: 1 },
     // Deux couleurs : elles teintent tous les styles
     colors: ["#a855f7", "#ff4d8d"],
   },
@@ -47,7 +47,7 @@ const PROFILES = [
       { icon: "fa-brands fa-youtube", label: "YouTube", sub: "ses vidéos", url: "https://youtube.com/@marlou-46?si=BFR1k60JW-MhQhdc" },
       { icon: "fa-brands fa-tiktok", label: "TikTok", sub: "ses clips", url: "https://www.tiktok.com/@__.marlou.__?_r=1&_t=ZG-9B0nGI1AzTc" },
     ],
-    music: { src: "assets/marlou/music.mp3", title: "Titre", artist: "Artiste", volume: 0.35 },
+    music: { src: "assets/marlou/music.mp3", title: "Titre", artist: "Artiste", volume: 1 },
     colors: ["#22d3ee", "#3b82f6"],
   },
 ];
