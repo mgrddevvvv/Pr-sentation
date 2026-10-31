@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Arcade</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="../../shared/base.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <canvas id="stars"></canvas>
+  <div class="crt"></div>
+
+  <div id="enter">
+    <h2 class="logo" data-f="name"></h2>
+    <p class="blink">PRESS START</p>
+    <small>clique ou appuie sur une touche</small>
+  </div>
+
+  <main class="screen">
+    <header class="hud">
+      <span>1UP <b data-f="handle"></b></span>
+      <span>TIME <b id="time"></b></span>
+    </header>
+
+    <section class="box player-card">
+      <div class="frame">
+        <img id="avatar" alt="">
+        <span id="avatar-fallback" hidden></span>
+      </div>
+      <div class="info">
+        <h1 data-f="name"></h1>
+        <p>CLASSE <span class="v"><span id="typed"></span><span class="caret">_</span></span></p>
+        <p>STATUT <span class="v" data-f="status.text"></span></p>
+        <p>ZONE <span class="v" data-f="location"></span></p>
+      </div>
+    </section>
+
+    <section class="box skills">
+      <h2>COMPÉTENCES</h2>
+      <div id="skills"></div>
+    </section>
+
+    <section class="box dialog">
+      <p id="dialog"></p>
+      <span class="next">▼</span>
+    </section>
+
+    <nav class="box menu" id="menu"></nav>
+
+    <footer class="bgm">
+      <button id="play">♪ BGM <span id="bgm">ON</span></button>
+      <span data-f="music.title"></span> — <span data-f="music.artist"></span>
+    </footer>
+  </main>
+
+  <script src="../../data/profiles.js"></script>
+  <script src="../../shared/common.js"></script>
+  <script src="theme.js"></script>
+</body>
+</html>

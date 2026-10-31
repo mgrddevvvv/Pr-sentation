@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Néon</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="../../shared/base.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <canvas id="bg"></canvas>
+  <div class="vignette"></div>
+
+  <div id="enter"><span>clique pour entrer</span></div>
+
+  <main>
+    <section class="card" id="card">
+      <div class="avatar-wrap">
+        <img id="avatar" alt="">
+        <span id="avatar-fallback" hidden></span>
+      </div>
+
+      <h1 id="name" class="glitch" data-f="name"></h1>
+      <p class="handle"><span data-f="handle"></span> · <span id="status"></span></p>
+
+      <p class="bio"><span id="typed"></span><span class="caret">|</span></p>
+      <p class="location"><i class="fa-solid fa-location-dot"></i> <span data-f="location"></span></p>
+
+      <div class="about">
+        <span class="about-title"><i class="fa-solid fa-user"></i> à propos de moi</span>
+        <p data-f="description"></p>
+        <div id="interests" class="interests"></div>
+      </div>
+
+      <nav id="links" class="links"></nav>
+
+      <div class="player">
+        <button id="play" aria-label="Lecture / pause"><i></i></button>
+        <div class="track">
+          <span id="track"></span>
+          <div class="bar"><div id="progress"></div></div>
+        </div>
+        <input type="range" id="volume" min="0" max="1" step="0.01" aria-label="Volume">
+      </div>
+    </section>
+  </main>
+
+  <script src="../../data/profiles.js"></script>
+  <script src="../../shared/common.js"></script>
+  <script src="theme.js"></script>
+</body>
+</html>

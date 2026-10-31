@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vinyle</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@500;700;800&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="../../shared/base.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="bg" id="bg"></div>
+
+  <div id="enter">
+    <i class="fa-solid fa-compact-disc"></i>
+    <span>pose le diamant</span>
+  </div>
+
+  <main>
+    <section class="deck" id="deck">
+      <div class="platter">
+        <div class="record">
+          <div class="label">
+            <img id="avatar" alt="">
+            <span id="avatar-fallback" hidden></span>
+          </div>
+        </div>
+      </div>
+      <div class="arm"><i></i></div>
+    </section>
+
+    <section class="side">
+      <p class="now"><i class="fa-solid fa-wave-square"></i> en ce moment</p>
+      <h2 data-f="music.title"></h2>
+      <p class="artist" id="artist" data-f="music.artist"></p>
+      <div class="controls">
+        <button id="play" aria-label="Lecture / pause"><i></i></button>
+        <div class="bar"><div id="progress"></div></div>
+        <input type="range" id="volume" min="0" max="1" step="0.01" aria-label="Volume">
+      </div>
+
+      <h1 data-f="name"></h1>
+      <p class="handle"><span data-f="handle"></span> · <span id="typed"></span><span class="caret"></span></p>
+      <p class="desc" data-f="description"></p>
+      <div class="chips" id="interests"></div>
+      <nav class="links" id="links"></nav>
+    </section>
+  </main>
+
+  <script src="../../data/profiles.js"></script>
+  <script src="../../shared/common.js"></script>
+  <script src="theme.js"></script>
+</body>
+</html>

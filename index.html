@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Notre équipe</title>
+  <meta name="description" content="Choisis qui découvrir et dans quel style">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=JetBrains+Mono:wght@400&family=Press+Start+2P&family=Instrument+Serif&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="chooser.css">
+</head>
+<body>
+  <div class="bg"><i></i><i></i></div>
+
+  <main>
+    <section id="step-who" class="step active">
+      <p class="kicker" id="site-title"></p>
+      <h1>Qui veux-tu découvrir ?</h1>
+      <div id="people" class="people"></div>
+    </section>
+
+    <section id="step-style" class="step">
+      <button class="link" id="back-who"><i class="fa-solid fa-arrow-left"></i> changer de personne</button>
+      <h1>Choisis un style pour <span id="who-name" class="grad"></span></h1>
+      <div id="themes" class="themes"></div>
+      <button id="random" class="random"><i class="fa-solid fa-dice"></i> au hasard</button>
+    </section>
+  </main>
+
+  <script src="data/profiles.js"></script>
+  <script src="data/themes.js"></script>
+  <script src="chooser.js"></script>
+</body>
+</html>

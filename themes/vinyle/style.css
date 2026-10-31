@@ -1,0 +1,146 @@
+:root {
+  --text: #f5f5f5;
+  --muted: rgba(255, 255, 255, .6);
+  --lvl: 0;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html, body {
+  min-height: 100%;
+  background: #070707;
+  color: var(--text);
+  font: 16px/1.5 "Inter", system-ui, sans-serif;
+  overflow-x: hidden;
+}
+
+.bg {
+  position: fixed; inset: -10%; z-index: 0;
+  background:
+    radial-gradient(circle at 25% 45%, color-mix(in srgb, var(--c1) 55%, transparent), transparent 55%),
+    radial-gradient(circle at 80% 80%, color-mix(in srgb, var(--c2) 40%, transparent), transparent 50%);
+  background-size: cover; background-position: center;
+  filter: blur(60px) saturate(1.2);
+  opacity: .7;
+}
+.bg::after { content: ""; position: absolute; inset: 0; background: rgba(0, 0, 0, .45); }
+
+#enter {
+  display: grid; place-content: center; justify-items: center; gap: 16px;
+  background: rgba(0, 0, 0, .8); backdrop-filter: blur(16px);
+  font: 700 1.2rem "Syne", sans-serif; letter-spacing: .1em;
+}
+#enter i { font-size: 3.5rem; color: var(--c1); animation: spin 2.5s linear infinite; }
+
+main {
+  position: relative; z-index: 2;
+  width: min(1040px, 100%); margin: 0 auto;
+  min-height: 100vh;
+  padding: 72px 20px 40px;
+  display: grid; grid-template-columns: 1.05fr 1fr; gap: 48px; align-items: center;
+}
+
+/* ---------- Platine ---------- */
+.deck { position: relative; aspect-ratio: 1; width: 100%; max-width: 460px; justify-self: center; }
+.platter {
+  position: absolute; inset: 4%;
+  border-radius: 50%;
+  box-shadow: 0 0 calc(30px + var(--lvl) * 90px) calc(var(--lvl) * 18px) var(--c1), 0 40px 80px rgba(0, 0, 0, .7);
+  transition: box-shadow .08s linear;
+}
+.record {
+  width: 100%; height: 100%; border-radius: 50%;
+  background:
+    conic-gradient(from 30deg, rgba(255,255,255,.12), transparent 12%, transparent 45%, rgba(255,255,255,.08) 55%, transparent 65%),
+    repeating-radial-gradient(circle, #0e0e0e 0 2px, #191919 2px 4px);
+  border: 8px solid #0a0a0a;
+  display: grid; place-items: center;
+  animation: spin 3.2s linear infinite;
+  animation-play-state: paused;
+}
+.spinning .record { animation-play-state: running; }
+.label {
+  position: relative;
+  width: 36%; aspect-ratio: 1; border-radius: 50%; overflow: hidden;
+  background: conic-gradient(var(--c1), var(--c2), var(--c1));
+  box-shadow: 0 0 0 6px #0a0a0a;
+}
+.label::after {
+  content: ""; position: absolute; left: 50%; top: 50%;
+  width: 10%; aspect-ratio: 1; translate: -50% -50%; border-radius: 50%;
+  background: #070707; box-shadow: 0 0 0 2px rgba(255,255,255,.3);
+}
+#avatar, #avatar-fallback { width: 100%; height: 100%; object-fit: cover; }
+#avatar-fallback { display: grid; place-items: center; font: 800 3rem "Syne", sans-serif; }
+@keyframes spin { to { transform: rotate(360deg); } }
+
+.arm {
+  position: absolute; right: -2%; top: -2%;
+  width: 6%; aspect-ratio: 1; border-radius: 50%;
+  background: radial-gradient(#ddd, #777);
+  box-shadow: 0 6px 14px rgba(0, 0, 0, .6);
+  transform: rotate(-8deg);
+  transform-origin: center;
+  transition: transform 1s cubic-bezier(.4, 0, .2, 1);
+}
+.arm i {
+  position: absolute; left: 50%; top: 50%;
+  width: 6px; height: 820%; margin-left: -3px;
+  border-radius: 3px;
+  background: linear-gradient(90deg, #888, #eee, #888);
+}
+.arm i::after {
+  content: ""; position: absolute; bottom: -4px; left: -7px;
+  width: 20px; height: 28px; border-radius: 3px; background: #ccc;
+}
+.spinning .arm { transform: rotate(26deg); }
+
+/* ---------- Infos ---------- */
+.side { display: grid; gap: 10px; }
+body:not(.started) .side { opacity: 0; translate: 0 20px; }
+.side { transition: opacity 1s .3s, translate 1s .3s; }
+
+.now { font-size: .75rem; letter-spacing: .2em; text-transform: uppercase; color: var(--c1); }
+.now i { margin-right: 6px; }
+h2 { font: 700 1.6rem/1.1 "Syne", sans-serif; }
+.artist { color: var(--muted); margin-top: -6px; }
+
+.controls { display: flex; align-items: center; gap: 12px; margin: 6px 0 22px; }
+#play {
+  flex: none; width: 46px; height: 46px; border-radius: 50%; border: none; cursor: pointer;
+  background: var(--text); color: #000; font-size: 1rem;
+  transition: transform .2s;
+}
+#play:hover { transform: scale(1.08); }
+.bar { flex: 1; height: 4px; border-radius: 4px; background: rgba(255, 255, 255, .15); overflow: hidden; }
+#progress { width: 0; height: 100%; background: linear-gradient(90deg, var(--c1), var(--c2)); }
+#volume { width: 80px; accent-color: var(--c1); }
+
+h1 { font: 800 clamp(2.4rem, 7vw, 4.2rem)/1 "Syne", sans-serif; letter-spacing: -.02em; }
+.handle { color: var(--muted); min-height: 1.5em; }
+.caret { display: inline-block; width: 2px; height: 1em; vertical-align: -2px; margin-left: 2px; background: var(--c1); animation: blink 1s steps(1) infinite; }
+@keyframes blink { 50% { opacity: 0; } }
+.desc { white-space: pre-line; line-height: 1.6; margin-top: 6px; }
+
+.chips { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 4px; }
+.chips span {
+  padding: 4px 12px; border-radius: 999px; font-size: .8rem;
+  border: 1px solid rgba(255, 255, 255, .25);
+}
+
+.links { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 14px; }
+.links a {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 10px 16px; border-radius: 999px;
+  color: var(--text); text-decoration: none; font-weight: 500;
+  background: rgba(255, 255, 255, .08);
+  border: 1px solid rgba(255, 255, 255, .12);
+  transition: background .2s, transform .2s;
+}
+.links a:hover { background: var(--c1); transform: translateY(-2px); }
+
+@media (max-width: 800px) {
+  main { grid-template-columns: 1fr; gap: 32px; text-align: center; }
+  .deck { max-width: 300px; }
+  .controls, .chips, .links { justify-content: center; }
+}

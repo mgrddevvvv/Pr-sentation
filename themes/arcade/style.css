@@ -1,0 +1,116 @@
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html, body {
+  min-height: 100%;
+  background: #0b0630;
+  color: #fff;
+  font: 22px/1.25 "VT323", monospace;
+  overflow-x: hidden;
+}
+
+#stars { position: fixed; inset: 0; width: 100%; height: 100%; z-index: 0; image-rendering: pixelated; }
+.crt {
+  position: fixed; inset: 0; z-index: 30; pointer-events: none;
+  background:
+    repeating-linear-gradient(transparent 0 2px, rgba(0, 0, 0, .28) 2px 4px),
+    radial-gradient(ellipse at center, transparent 55%, rgba(0, 0, 0, .6));
+  animation: flicker .15s steps(2) infinite;
+}
+@keyframes flicker { 50% { opacity: .92; } }
+
+#enter {
+  display: grid; place-content: center; gap: 28px; text-align: center;
+  background: #0b0630; padding: 16px;
+}
+.logo {
+  font: clamp(1.4rem, 6vw, 3rem)/1.2 "Press Start 2P", monospace;
+  color: var(--c1); text-shadow: 4px 4px 0 var(--c2), 8px 8px 0 #000;
+}
+.blink { font: 1rem "Press Start 2P", monospace; animation: blink 1s steps(1) infinite; }
+#enter small { opacity: .6; }
+@keyframes blink { 50% { opacity: 0; } }
+
+.screen {
+  position: relative; z-index: 2;
+  width: min(720px, 100%);
+  margin: 0 auto;
+  padding: 64px 16px 32px;
+  display: grid; gap: 16px;
+}
+body:not(.started) .screen { visibility: hidden; }
+.screen > * { animation: pop .4s steps(4) backwards; }
+.screen > *:nth-child(2) { animation-delay: .15s; }
+.screen > *:nth-child(3) { animation-delay: .3s; }
+.screen > *:nth-child(4) { animation-delay: .45s; }
+.screen > *:nth-child(5) { animation-delay: .6s; }
+.screen > *:nth-child(6) { animation-delay: .75s; }
+@keyframes pop { from { transform: scale(.6); opacity: 0; } }
+
+.hud {
+  display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8px;
+  font: .6rem "Press Start 2P", monospace; color: var(--c1);
+}
+.hud b { color: #fff; font-weight: 400; margin-left: 6px; }
+
+/* Boîtes à bord pixel */
+.box {
+  position: relative;
+  padding: 16px 18px;
+  background: #140c4a;
+  box-shadow:
+    0 -4px 0 #fff, 0 4px 0 #fff, -4px 0 0 #fff, 4px 0 0 #fff,
+    0 0 0 4px #000, 8px 8px 0 4px rgba(0, 0, 0, .5);
+  margin: 4px;
+}
+h1, h2 { font-family: "Press Start 2P", monospace; font-weight: 400; }
+h2 { font-size: .7rem; color: var(--c2); margin-bottom: 12px; }
+
+.player-card { display: flex; gap: 18px; align-items: center; }
+.frame { flex: none; width: 112px; height: 112px; padding: 4px; background: var(--c1); }
+#avatar, #avatar-fallback {
+  width: 100%; height: 100%; object-fit: cover;
+  image-rendering: pixelated; background: #000;
+}
+#avatar-fallback { display: grid; place-items: center; font: 2.4rem "Press Start 2P", monospace; color: var(--c1); }
+.info h1 { font-size: clamp(.9rem, 4vw, 1.4rem); color: var(--c1); text-shadow: 3px 3px 0 #000; margin-bottom: 10px; line-height: 1.3; }
+.info p { color: #9d93d6; }
+.v { color: #fff; margin-left: 8px; }
+.caret { animation: blink 1s steps(1) infinite; color: var(--c1); }
+
+.skill { display: grid; grid-template-columns: 9em 1fr; align-items: center; gap: 10px; margin-top: 6px; }
+.skill span { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.segs { display: flex; gap: 3px; }
+.segs i { flex: 1; height: 14px; background: #2a1f6e; }
+.segs i.on { background: var(--c1); box-shadow: inset 0 -4px 0 rgba(0, 0, 0, .3); transition: background 0s; }
+.segs:not(.go) i.on { background: #2a1f6e; box-shadow: none; }
+
+.dialog { min-height: 120px; }
+#dialog { white-space: pre-line; font-size: 1.15rem; }
+.next { position: absolute; right: 14px; bottom: 8px; color: var(--c1); animation: bob .6s steps(2) infinite; }
+@keyframes bob { 50% { transform: translateY(4px); } }
+
+.menu { display: grid; gap: 4px; }
+.menu a {
+  display: flex; align-items: center; gap: 12px;
+  padding: 6px 8px;
+  color: #fff; text-decoration: none;
+  font: .8rem "Press Start 2P", monospace;
+}
+.menu a::before { content: "▶"; color: var(--c1); visibility: hidden; }
+.menu a:hover, .menu a:focus-visible { background: var(--c1); color: #000; outline: none; }
+.menu a:hover::before, .menu a:focus-visible::before { visibility: visible; color: #000; }
+.menu a i { width: 1.4em; text-align: center; }
+
+.bgm { text-align: center; color: #9d93d6; }
+.bgm button {
+  font: .6rem "Press Start 2P", monospace; color: #000; cursor: pointer;
+  padding: 8px 10px; margin-right: 10px; border: none;
+  background: var(--c2); box-shadow: 4px 4px 0 #000;
+}
+.bgm button:active { transform: translate(2px, 2px); box-shadow: 2px 2px 0 #000; }
+
+@media (max-width: 480px) {
+  html, body { font-size: 19px; }
+  .player-card { flex-direction: column; text-align: center; }
+  .skill { grid-template-columns: 6em 1fr; }
+}

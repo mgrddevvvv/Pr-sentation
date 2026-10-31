@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bento</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="../../shared/base.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="blobs"><i></i><i></i><i></i></div>
+  <div class="grain"></div>
+
+  <div id="enter"><span>clique n'importe où</span></div>
+
+  <main class="grid">
+    <section class="tile profile">
+      <div class="avatar">
+        <img id="avatar" alt="">
+        <span id="avatar-fallback" hidden></span>
+        <span class="dot" id="status-dot"></span>
+      </div>
+      <div>
+        <h1 data-f="name"></h1>
+        <p class="handle"><span data-f="handle"></span> · <span data-f="status.text"></span></p>
+        <p class="bio"><span id="typed"></span><span class="caret"></span></p>
+      </div>
+    </section>
+
+    <section class="tile about">
+      <h2><i class="fa-regular fa-face-smile"></i> à propos</h2>
+      <p data-f="description"></p>
+      <div id="interests" class="chips"></div>
+    </section>
+
+    <section class="tile clock">
+      <h2><i class="fa-regular fa-clock"></i> mon heure</h2>
+      <p id="time">--:--</p>
+      <p class="sub"><i class="fa-solid fa-location-dot"></i> <span data-f="location"></span></p>
+    </section>
+
+    <section class="tile music">
+      <canvas id="viz"></canvas>
+      <div class="music-row">
+        <button id="play" aria-label="Lecture / pause"><i></i></button>
+        <div class="meta">
+          <strong data-f="music.title"></strong>
+          <span id="artist" data-f="music.artist"></span>
+        </div>
+        <input type="range" id="volume" min="0" max="1" step="0.01" aria-label="Volume">
+      </div>
+    </section>
+
+    <nav id="links" class="links"></nav>
+  </main>
+
+  <script src="../../data/profiles.js"></script>
+  <script src="../../shared/common.js"></script>
+  <script src="theme.js"></script>
+</body>
+</html>

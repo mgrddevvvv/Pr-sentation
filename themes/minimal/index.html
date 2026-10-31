@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Minimal</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="../../shared/base.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="enter"><span>Entrer</span><i></i></div>
+
+  <header class="top">
+    <span><span data-f="handle"></span> · <span id="time"></span> — <span data-f="location"></span></span>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="avatar">
+        <img id="avatar" alt="">
+        <span id="avatar-fallback" hidden></span>
+      </div>
+      <h1 id="name"></h1>
+      <p class="bio"><em id="typed"></em><span class="caret"></span></p>
+    </section>
+
+    <div class="marquee"><div id="marquee"></div></div>
+
+    <section class="block">
+      <span class="label">(À propos)</span>
+      <p class="about" data-f="description"></p>
+    </section>
+
+    <section class="block">
+      <span class="label">(Liens)</span>
+      <ol id="links" class="links"></ol>
+    </section>
+  </main>
+
+  <div class="mini-player">
+    <button id="play" aria-label="Lecture / pause"><i></i></button>
+    <span id="np"><span data-f="music.title"></span> — <span data-f="music.artist"></span></span>
+  </div>
+
+  <script src="../../data/profiles.js"></script>
+  <script src="../../shared/common.js"></script>
+  <script src="theme.js"></script>
+</body>
+</html>
