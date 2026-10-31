@@ -17,7 +17,7 @@ const PROFILES = [
     bios: ["Développeur", "Je fais des addons Garry's Mod", "Bienvenue sur la page Github !"],
     // Tu peux sauter des lignes avec \n
     description:
-      "Salut ! Moi c'est Mgrd__, j'ai 15 ans.\nJe passe mon temps sur Garry's Mod à créer des addons et des serveurs. Toujours partant pour un projet ! \nEn ce moment, je suis entrain d'apprendre le mapping sur Hammer++ !",
+      "Salut ! Moi c'est Mgrd__, j'ai 15 ans.\nJe passe mon temps sur Garry's Mod à créer des addons. Toujours partant pour un projet ! \nEn ce moment, je suis entrain d'apprendre le mapping sur Hammer++ !",
     
     interests: ["Garry's Mod", "Lua", "Mapping", "Dev"],
     location: "France",
