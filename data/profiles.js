@@ -43,9 +43,9 @@ const PROFILES = [
     location: "France",
     timezone: "Europe/Paris",
     links: [
-      { icon: "fa-brands fa-discord", label: "Discord", sub: "coequipier", url: "https://discord.com/users/SON_ID" },
-      { icon: "fa-brands fa-youtube", label: "YouTube", sub: "ses vidéos", url: "https://youtube.com/@SON_PSEUDO" },
-      { icon: "fa-brands fa-tiktok", label: "TikTok", sub: "ses clips", url: "https://tiktok.com/@SON_PSEUDO" },
+      { icon: "fa-brands fa-discord", label: "Discord", sub: "coequipier", url: "https://discord.com/users/921157816985735180" },
+      { icon: "fa-brands fa-youtube", label: "YouTube", sub: "ses vidéos", url: "https://youtube.com/@marlou-46?si=BFR1k60JW-MhQhdc" },
+      { icon: "fa-brands fa-tiktok", label: "TikTok", sub: "ses clips", url: "https://www.tiktok.com/@__.marlou.__?_r=1&_t=ZG-9B0nGI1AzTc" },
     ],
     music: { src: "assets/marlou/music.mp3", title: "Titre", artist: "Artiste", volume: 0.35 },
     colors: ["#22d3ee", "#3b82f6"],
